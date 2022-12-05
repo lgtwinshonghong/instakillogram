@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import static javax.swing.BoxLayout.X_AXIS;
 
 public class ArticlePanel extends JPanel {
+
+    private boolean isLikePressed = false;
     public ArticlePanel(UserTable user1, int userNumID) {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -73,7 +75,7 @@ public class ArticlePanel extends JPanel {
         jp2.setLayout(fl);
         jp2.setPreferredSize(new Dimension(600, 30));
 
-        ImageIcon newrheart = new ImageIcon("./image/DM.jpg");
+        ImageIcon newrheart = new ImageIcon("./image/r_heart.jpg");
         Image rheartimg = newrheart.getImage();
         Image updaterheart = rheartimg.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
         ImageIcon resizerheart = new ImageIcon(updaterheart);
@@ -100,14 +102,15 @@ public class ArticlePanel extends JPanel {
                 String str = buttonn.getText();
                 int count = 0; //0이면 좋아요가 안눌린 상태 1이면 좋아요가 눌린 상태
                 //좋아요를 받은 경우 나오는 효과 빨간색 변화
-                if (str.equals("LIKE")) {
-                    buttonn.setBackground(Color.red);
-                    buttonn.setText("HEART");
+                if (!isLikePressed) {
+                    buttonn.setIcon(resizerheart);
+                    isLikePressed = true;
+                    count = 1;
                 }
                 //좋아요 취소
-                else if (str.equals("HEART")) {
-                    buttonn.setBackground(Color.white);
-                    buttonn.setText("LIKE");
+                else {
+                    buttonn.setIcon(resizewheart);
+                    isLikePressed = false;
                     count = 0;
                 }
 
@@ -128,9 +131,6 @@ public class ArticlePanel extends JPanel {
         jp2.add(reply, BorderLayout.LINE_START);
 
         //스크롤바
-        JScrollPane scroll = new JScrollPane(jp1);
-        scroll.setLocation(790,50);
-        scroll.setSize(5,750);
 
         //게시 글 작성하는 곳
         jp3.setLayout(new BoxLayout(jp3, X_AXIS));
@@ -144,7 +144,6 @@ public class ArticlePanel extends JPanel {
         add(jp1);
         add(jp2);
         add(jp3);
-        add(scroll);
 
         setBackground(Color.WHITE);
 

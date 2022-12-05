@@ -155,10 +155,28 @@ public class MainPage extends JFrame {
         total.add(jp);
         total.setBackground(Color.WHITE);
         setBackground(Color.WHITE);
+        scroll = new JScrollPane(total);
 
-        for(int i=1; i< 3; i++) {
-            total.add(new ArticlePanel(user1, userNumID));
+        /*
+            message:[승환->우영]
+            게시글 여러개 추가하는 부분 아래 있다.
+            지금은 ArticlePanel이 UserTable 하나랑 유저id 정수 하나밖에 안받음
+            게시글 하나당 사진, 글내용, 작성자, 댓글 등 필요한게 저거 두개보단 많은걸로 아는데
+            아직 그 기능들이개발 안된것같고 나도 시간없어서 그냥 놔둠
+
+            우영아 고생하겠지만 기능들 개발되면 ArticlePanel 생성자 수정하고
+            내부 소스 변경해야할듯하다 모르면연락 ㄱㄱ
+        */
+        for(int i=1; i<4; i++) {
+            scroll.add(new ArticlePanel(user1, userNumID));
         }
+
+        scroll.setLocation(790,50);
+        scroll.setSize(5,750);
+        scroll.setLayout(null);
+        scroll.setBackground(Color.white);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        total.add(scroll);
         add(total);
 
         //x눌러서 창 닫게 만드는 구문
