@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="InstakillogramEG" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="InstakilogramEG" />
+    <module name="instakillogram" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

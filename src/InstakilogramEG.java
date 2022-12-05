@@ -20,8 +20,6 @@ public class InstakilogramEG {
     //NOTE : 1. check connector
     // 2. check jdk
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        new MainPage();
-        System.exit(0);
 
         /*System.out.println("Enter the SQL server password:");
         Scanner kb = new Scanner(System.in);
