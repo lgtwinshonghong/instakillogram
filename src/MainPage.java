@@ -155,7 +155,9 @@ public class MainPage extends JFrame {
         total.add(jp);
         total.setBackground(Color.WHITE);
         setBackground(Color.WHITE);
-        scroll = new JScrollPane(total);
+
+        JPanel feedPanel = new JPanel();
+        scroll = new JScrollPane(feedPanel);
 
         /*
             message:[승환->우영]
@@ -168,7 +170,7 @@ public class MainPage extends JFrame {
             내부 소스 변경해야할듯하다 모르면연락 ㄱㄱ
         */
         for(int i=1; i<4; i++) {
-            scroll.add(new ArticlePanel(user1, userNumID));
+            feedPanel.add(new ArticlePanel(user1, userNumID));
         }
 
         scroll.setLocation(790,50);
