@@ -140,10 +140,10 @@ public class ArticlePanel extends JPanel {
         JLabel text = new JLabel("adfasdf"); // 글 내용 위의 주석 부분 (content)가 내용 문자열임
         jp3.add(text);
 
+        add(info);
         add(jp1);
         add(jp2);
         add(jp3);
-        add(info);
         add(scroll);
 
         setBackground(Color.WHITE);
