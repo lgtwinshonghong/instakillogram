@@ -11,8 +11,8 @@ class UploadFrame extends JFrame implements ActionListener{
     ArticleTable article1;
     int userNumID;
     private JFileChooser jfc = new JFileChooser();
-    private JButton jbt_open = new JButton("����");
-    private JButton jbt_save = new JButton("����");
+    private JButton jbt_open = new JButton("OPEN");
+    private JButton jbt_save = new JButton("STORE");
     private JButton back_main = new JButton("<-");
     JTextArea posting = new JTextArea(10, 50);
     private JLabel jlb = new JLabel(" ");

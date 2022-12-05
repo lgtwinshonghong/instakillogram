@@ -1,6 +1,7 @@
 import com.sun.tools.javac.Main;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -25,18 +26,40 @@ class DMFrame implements ActionListener {
 
 
         JButton jb = new JButton("Send");
-        jb.setSize(100, 30);
+        jb.setSize(85, 30);
         jb.addActionListener(this);
-        jb.setLocation(205, 180);
+        jb.setLocation(10, 300);
 
         jf.add(jb);
 
-        jb = new JButton("<-");
-        jb.setSize(50, 30);
-        jb.addActionListener(this);
-        jb.setLocation(122, 0);
+        ImageIcon newbacl = new ImageIcon("./image/back.jpg");
+        Image backimg = newbacl.getImage();
+        Image updateback = backimg.getScaledInstance(40,40,Image.SCALE_SMOOTH);
+        ImageIcon resizeback = new ImageIcon(updateback);
+        JButton back_main = new JButton(resizeback);
+        back_main.setPreferredSize(new Dimension(40, 40));;
 
-        jf.add(jb);
+        back_main.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jf.setVisible(false);
+                //<-----   ----->
+                MainPage mp = new MainPage(user1, userNumID);
+                try {
+                    mp.createMainPage();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                //new main_gasta();
+            }
+        });
+
+
+        back_main.setSize(40, 40);
+        back_main.addActionListener(this);
+        back_main.setLocation(219, 300);
+
+        jf.add(back_main);
 
         JLabel jl = new JLabel("Message");
         jl.setSize(100, 30);
@@ -46,7 +69,7 @@ class DMFrame implements ActionListener {
         jf.add(jl);
 
         jt = new JTextField();
-        jt.setSize(200, 200);
+        jt.setSize(250, 200);
         jt.setLocation(10, 100);
         jt.setHorizontalAlignment(JLabel.CENTER);
 
@@ -54,8 +77,8 @@ class DMFrame implements ActionListener {
 
         String[] name = {"wooyoung", "myeonson", "jonghyeon", "juhyeok"};
         JComboBox nameCombo = new JComboBox(name);
-        nameCombo.setSize(140, 100);
-        nameCombo.setLocation(65, 40);
+        nameCombo.setSize(140, 20);
+        nameCombo.setLocation(65, 80);
         jf.add(nameCombo);
 
         jf.setVisible(true);

@@ -16,10 +16,11 @@ public class ReplyFrame extends JFrame {
     public void createReplyFrame() {
 
 
-        setSize(600,700);
+        setSize(800,600);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container c = getContentPane();
         c.setLayout(new FlowLayout());
+
         ImageIcon newbacl = new ImageIcon("./image/back.jpg");
         Image backimg = newbacl.getImage();
         Image updateback = backimg.getScaledInstance(40,40,Image.SCALE_SMOOTH);
@@ -45,12 +46,12 @@ public class ReplyFrame extends JFrame {
 
         JPanel back = new JPanel();
         back.add(back_main);
-        back.setPreferredSize(new Dimension(600,30));
+        back.setPreferredSize(new Dimension(600,50));
 
         //전체 댓글이 보이는 패널
         JPanel jp = new JPanel();
         jp.setLayout(new BoxLayout(jp,BoxLayout.X_AXIS));
-        jp.setPreferredSize(new Dimension(600,510));
+        jp.setPreferredSize(new Dimension(600,450));
 
         JLabel jl = new JLabel();
         jl.setSize(100,450);
@@ -68,7 +69,7 @@ public class ReplyFrame extends JFrame {
 
 
         jp1.setLayout(new BoxLayout(jp1,BoxLayout.X_AXIS));
-        jp1.setPreferredSize(new Dimension(600,150));
+        jp1.setPreferredSize(new Dimension(600,100));
         jp1.add(id);
 
 
@@ -76,16 +77,16 @@ public class ReplyFrame extends JFrame {
 
         JTextArea ta = new JTextArea();
         jp1.add(ta);
+        String id1 = "whadqls09"; // 인스타 이름 가져오는거
 
         upload.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String text = ta.getText();
-                JLabel re = new JLabel(text);
-                jp.add(id);
-                jp.add(re);
+                jl.setText(id1 + ":");
+                jl1.setText(ta.getText());
             }
         });
+
 
         jp1.add(upload);
 

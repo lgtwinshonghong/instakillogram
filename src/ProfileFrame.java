@@ -1,6 +1,7 @@
 import com.sun.tools.javac.Main;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -38,12 +39,34 @@ class ProfileFrame implements ActionListener {
 
         jf.add(jb);
 
-        jb = new JButton("<-");
-        jb.setSize(50, 30);
-        jb.addActionListener(this);
-        jb.setLocation(122, 480);
+        ImageIcon newbacl = new ImageIcon("./image/back.jpg");
+        Image backimg = newbacl.getImage();
+        Image updateback = backimg.getScaledInstance(40,40,Image.SCALE_SMOOTH);
+        ImageIcon resizeback = new ImageIcon(updateback);
+        JButton back_main = new JButton(resizeback);
+        back_main.setPreferredSize(new Dimension(40, 40));;
 
-        jf.add(jb);
+        back_main.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jf.setVisible(false);
+                //<-----   ----->
+                MainPage mp = new MainPage(user1, userNumID);
+                try {
+                    mp.createMainPage();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                //new main_gasta();
+            }
+        });
+
+
+        back_main.setSize(40, 40);
+        back_main.addActionListener(this);
+        back_main.setLocation(122, 480);
+
+        jf.add(back_main);
 
         int n = user1.getCountFollower(userNumID);
         JLabel jl = new JLabel(Integer.toString(n)); //팔로워 수
