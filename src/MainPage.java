@@ -32,7 +32,7 @@ public class MainPage extends JFrame {
         //기본 창관련
         //창의 전체 사이즈 설정
         //setLocation(500,500); //나오는 위치
-        setSize(600, 900); //가로 세로
+        setSize(800, 900); //가로 세로
 
         //컴포넌트 위치 설정
         Container contentPane = getContentPane();

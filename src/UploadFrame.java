@@ -11,8 +11,8 @@ class UploadFrame extends JFrame implements ActionListener{
     ArticleTable article1;
     int userNumID;
     private JFileChooser jfc = new JFileChooser();
-    private JButton jbt_open = new JButton("¿­±â");
-    private JButton jbt_save = new JButton("ÀúÀå");
+    private JButton jbt_open = new JButton("ï¿½ï¿½ï¿½ï¿½");
+    private JButton jbt_save = new JButton("ï¿½ï¿½ï¿½ï¿½");
     private JButton back_main = new JButton("<-");
     JTextArea posting = new JTextArea(10, 50);
     private JLabel jlb = new JLabel(" ");
@@ -28,7 +28,7 @@ class UploadFrame extends JFrame implements ActionListener{
     }
 
     private void gotoMainPage() {
-        MainPage mp = new MainPage(user1, userNumID);
+        MainPage mp = new MainPage(user1,article1, userNumID);
         try {
             mp.createMainPage();
         } catch (SQLException ex) {
@@ -62,8 +62,8 @@ class UploadFrame extends JFrame implements ActionListener{
         jbt_save.addActionListener(this);
 
         //           jfc.setFileFilter(new FileNameExtensionFilter("jpg", "jpg"));
-        // ÆÄÀÏ ÇÊÅÍ
-        jfc.setMultiSelectionEnabled(false);//´ÙÁß ¼±ÅÃ ºÒ°¡
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        jfc.setMultiSelectionEnabled(false);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
     }
 
     @Override
@@ -74,13 +74,13 @@ class UploadFrame extends JFrame implements ActionListener{
 
 
             if(jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
-                String juso = jfc.getSelectedFile().toString();//ÆÄÀÏÀý´ë°æ·ÎÁÖ¼Ò ÀúÀå-->³Ñ±â´Â º¯¼ö
+                String juso = jfc.getSelectedFile().toString();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½-->ï¿½Ñ±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 jlb.setText("open : " + jfc.getSelectedFile().toString());
 
             }
         }
         if(arg0.getSource() == jbt_save){
-            String post = posting.getText();//textarea¿¡ ÀÖ´Â ±Û ÀúÀå-->³Ñ±â´Â º¯¼ö
+            String post = posting.getText();//textareaï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½-->ï¿½Ñ±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             article1.insertArticle(post);
             JOptionPane.showMessageDialog(null, "Upload Success");
             setVisible(false);
@@ -93,4 +93,4 @@ class UploadFrame extends JFrame implements ActionListener{
 
 }
 
-//ÆÐ³Î¿¡ ±×¸²À» ¿Ã·ÁÁÖ´Â Å¬·¡½º
+//ï¿½Ð³Î¿ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ö´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
