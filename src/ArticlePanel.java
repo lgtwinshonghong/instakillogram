@@ -11,7 +11,7 @@ public class ArticlePanel extends JPanel {
     public ArticlePanel(UserTable user1, int userNumID) {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setPreferredSize(new Dimension(800, 750));
+        setPreferredSize(new Dimension(600, 750));
 
         JPanel jp1 = new JPanel();
         JPanel jp2 = new JPanel();
@@ -26,7 +26,7 @@ public class ArticlePanel extends JPanel {
         info.setLayout(new BoxLayout(info, X_AXIS));
 
         info.setBackground(Color.WHITE);
-        info.setPreferredSize(new Dimension(800, 30));
+        info.setPreferredSize(new Dimension(600, 30));
         info.setSize(600, 30);
         String instaid = user1.getUserNickname(userNumID); //인스타 아이디 데베에서 받아와서 저장하면 됨
         JLabel name = new JLabel(instaid);
@@ -56,14 +56,14 @@ public class ArticlePanel extends JPanel {
 
         ImageIcon img = new ImageIcon(insta_img);
         Image reimg = img.getImage();
-        Image updateimg = reimg.getScaledInstance(800, 550, Image.SCALE_SMOOTH);
+        Image updateimg = reimg.getScaledInstance(600, 550, Image.SCALE_SMOOTH);
         ImageIcon resizeimg = new ImageIcon(updateimg);
         JLabel imgs = new JLabel(resizeimg);
-        imgs.setSize(800, 550);
+        imgs.setSize(600, 550);
 
         jp1.add(imgs);
-        jp1.setPreferredSize(new Dimension(800, 550));
-        jp1.setSize(new Dimension(800, 550));
+        jp1.setPreferredSize(new Dimension(600, 550));
+        jp1.setSize(new Dimension(600, 550));
 
 
         //좋아요 댓글 작성하는 곳
@@ -134,7 +134,7 @@ public class ArticlePanel extends JPanel {
 
         //게시 글 작성하는 곳
         jp3.setLayout(new BoxLayout(jp3, X_AXIS));
-        jp3.setPreferredSize(new Dimension(800, 50));
+        jp3.setPreferredSize(new Dimension(600, 50));
         jp3.add(new JLabel("글: "));
         //StringBuilder content = article1.readArticle();
         JLabel text = new JLabel("adfasdf"); // 글 내용 위의 주석 부분 (content)가 내용 문자열임

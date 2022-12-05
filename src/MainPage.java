@@ -107,7 +107,7 @@ public class MainPage extends JFrame {
         });
 
         //jp.setLayout(new BoxLayout(jp, BoxLayout.X_AXIS));
-        jp.setPreferredSize(new Dimension(600, 45));
+        jp.setPreferredSize(new Dimension(800, 45));
 
         //로고 넣기
         JLabel logolabel = new JLabel();
@@ -157,7 +157,6 @@ public class MainPage extends JFrame {
         setBackground(Color.WHITE);
 
         JPanel feedPanel = new JPanel();
-        scroll = new JScrollPane(feedPanel);
 
         /*
             message:[승환->우영]
@@ -169,15 +168,18 @@ public class MainPage extends JFrame {
             우영아 고생하겠지만 기능들 개발되면 ArticlePanel 생성자 수정하고
             내부 소스 변경해야할듯하다 모르면연락 ㄱㄱ
         */
-        for(int i=1; i<4; i++) {
+
+        int i = 0;
+        for(; i<5; i++) {
             feedPanel.add(new ArticlePanel(user1, userNumID));
         }
 
-        scroll.setLocation(790,50);
-        scroll.setSize(5,750);
-        scroll.setLayout(null);
-        scroll.setBackground(Color.white);
+        //feedPanel.setLayout(null);
+        feedPanel.setBackground(Color.WHITE);
+        feedPanel.setPreferredSize(new Dimension(600, 855*i));
+        scroll = new JScrollPane(feedPanel);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setPreferredSize(new Dimension(600, 855));
         total.add(scroll);
         add(total);
 
