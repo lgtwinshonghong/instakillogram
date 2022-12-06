@@ -21,10 +21,11 @@ public class InstakilogramEG {
     // 2. check jdk
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
 
+
         /*System.out.println("Enter the SQL server password:");
         Scanner kb = new Scanner(System.in);
         String pw = kb.nextLine(); // or create password String variable*/
-        String pw = "wpj481796";
+        String pw = "092719";
         makeConnection("jdbc:mysql://localhost", "root", pw);
         System.out.println("connection!");
 
@@ -46,9 +47,9 @@ public class InstakilogramEG {
         StringBuilder content = article1.readArticle(1);
         System.out.println(content);*/
 
-        user1.follow(true, 1, 2);
-        System.out.println(user1.getUserNickname(2) + "'s follower cnt : " + user1.getCountFollower(2));
-        System.out.println(user1.getUserNickname(1) + "'s following cnt : " + user1.getCountFollowing(1));
+        //user1.follow(true, 1, 2);
+        //System.out.println(user1.getUserNickname(2) + "'s follower cnt : " + user1.getCountFollower(2));
+        //System.out.println(user1.getUserNickname(1) + "'s following cnt : " + user1.getCountFollowing(1));
 
 
         LoginFrame f = new LoginFrame(user1, article1);
